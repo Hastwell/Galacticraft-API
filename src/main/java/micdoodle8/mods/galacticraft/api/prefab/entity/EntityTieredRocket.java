@@ -117,7 +117,8 @@ public abstract class EntityTieredRocket extends EntityAutoRocket implements IRo
         //These will be done: 2 chunks per tick during IGNITE phase (so 800 chunks during the 20 second launch countdown)
         //then the ones that are left 1 chunk per tick during flight (normally flight will last more than 450 ticks)
         //If the server is at less than 20tps then maybe some of the outermost chunks won't be pre-generated but that's probably OK
-        if (this.destinationFrequency == -1)
+        
+	/*if (this.destinationFrequency == -1)
         {
             ArrayList<Integer> toPreGen = new ArrayList();
             for (Planet planet : GalaxyRegistry.getRegisteredPlanets().values())
@@ -163,9 +164,9 @@ public abstract class EntityTieredRocket extends EntityAutoRocket implements IRo
             }
         }
         else
-        {
+        {*/
             this.preGenIterator = null;
-        }
+        //}
     }
 
     @Override
@@ -214,7 +215,7 @@ public abstract class EntityTieredRocket extends EntityAutoRocket implements IRo
                 this.launchCooldown--;
             }
 
-            if (this.preGenIterator != null)
+            /*if (this.preGenIterator != null)
             {
                 if (this.preGenIterator.hasNext())
                 {
@@ -241,7 +242,7 @@ public abstract class EntityTieredRocket extends EntityAutoRocket implements IRo
                 {
                     this.preGenIterator = null;
                 }
-            }
+            }*/
         }
 
         if (!this.worldObj.isRemote && this.getLandingPad() != null && this.getLandingPad().getConnectedTiles() != null)
